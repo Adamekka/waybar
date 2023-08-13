@@ -75,6 +75,7 @@
         "separate-outputs": true
     },
     "modules-right": [
+        "custom/playerctl",
         "pulseaudio",
         "network",
         "cpu",
@@ -87,6 +88,19 @@
         "clock",
         "tray"
     ],
+    "custom/playerctl": {
+        "format": "{icon}  <span>{}</span>",
+        "return-type": "json",
+        "max-length": 50,
+        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+        "on-click-middle": "playerctl play-pause",
+        "on-click": "playerctl previous",
+        "on-click-right": "playerctl next",
+        "format-icons": {
+            "Playing": "<span foreground='#94e2d5'></span>",
+            "Paused": "<span foreground='#f38ba8'></span>"
+        }
+    },
     "pulseaudio": {
         "format": "{volume}% {icon} {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
