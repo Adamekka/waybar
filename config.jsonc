@@ -58,7 +58,7 @@
     "modules-center": [
         "hyprland/window"
     ],
-    "fixed-center": false,
+    "fixed-center": true,
     "hyprland/window": {
         "format": "{title}",
         "rewrite": {
