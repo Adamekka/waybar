@@ -1,15 +1,14 @@
 @import url("./colors.css");
 
 * {
-  font-family: UbuntuMono Nerd Font, Roboto, Helvetica, Arial, sans-serif;
+  font-family: UbuntuMono Nerd Font Propo;
   font-size: 14px;
   border-radius: 20px;
+  margin: 2px;
 }
 
 window#waybar {
-  background-color: @background-darker;
-  border-bottom: 3px solid @background;
-  color: @foreground;
+  background-color: rgba(0, 0, 0, 0);
   transition-property: background-color;
   transition-duration: 0.5s;
 }
@@ -18,122 +17,63 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-button {
-  box-shadow: inset 0 -3px transparent;
-  border: none;
-}
-
 button:hover {
   background: inherit;
-  box-shadow: inset 0 -3px @foreground;
+}
+
+#custom-logo {
+  color: @foreground;
 }
 
 #workspaces button {
   margin: 2 5px;
-  background-color: @purple;
+  background-color: @background;
   color: @foreground;
 }
 
-#workspaces button:hover {
-  background: @selection;
-}
-
-#workspaces button.focused {
-  background-color: @selection;
-  box-shadow: inset 0 -3px @foreground;
+#workspaces button.active {
+  color: @cyan;
 }
 
 #workspaces button.urgent {
   background-color: @red;
 }
 
-#mode {
-  background-color: @selection;
-  border-bottom: 3px solid @foreground;
-}
-
 #cava {
-  background-color: @cyan;
-  color: @background;
+  background-color: @background;
+  color: @cyan;
   padding: 0 5px;
   font-size: 13px;
 }
 
 #custom-playerctl,
-#pulseaudio,
 #network,
-#cpu,
 #memory,
-#temperature,
-#clock,
 #tray {
-  padding: 5 15px;
-  color: @foreground;
+  padding: 0 10px;
+  color: @cyan;
+  background-color: @background;
 }
 
-#window,
-#workspaces {
-  margin: 0 4px;
-}
-
-/* If workspaces is the leftmost module, omit left margin */
-.modules-left > widget:first-child > #workspaces {
-  margin-left: 0;
-}
-
-/* If workspaces is the rightmost module, omit right margin */
-.modules-right > widget:last-child > #workspaces {
-  margin-right: 0;
-}
-
-#custom-playerctl {
-  background-color: @purple;
-  color: @background;
-}
-
-#pulseaudio {
-  background-color: @cyan;
-  color: @background;
-}
-
-#pulseaudio.muted {
-  background-color: @red;
-  color: @background;
-}
-
-#network {
-  background-color: @purple;
-  color: @background;
-}
-
-#network.disconnected {
-  background-color: @red;
-  color: @background;
-}
-
-#cpu {
-  background-color: @cyan;
-  color: @background;
-}
-
-#memory {
-  background-color: @purple;
-  color: @background;
-}
-
+#clock,
+#pulseaudio,
+#cpu,
 #temperature {
-  background-color: @cyan;
-  color: @background;
+  padding: 0 10px;
+  color: @purple;
+  background-color: @background;
 }
 
 #temperature.critical {
-  background-color: @red;
-  color: @background;
+  color: @red;
 }
 
-#clock {
-  background-color: @purple;
-  color: @background;
+#pulseaudio.muted {
+  color: @red;
+}
+
+#network.disconnected {
+  color: @red;
 }
 
 @keyframes blink {
@@ -141,10 +81,6 @@ button:hover {
     background-color: @foreground;
     color: @background;
   }
-}
-
-#tray {
-  background-color: @cyan;
 }
 
 #tray > .passive {

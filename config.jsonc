@@ -4,23 +4,23 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
+    // MARK: Left
     "modules-left": [
         "custom/logo",
         "hyprland/workspaces",
         "cava"
     ],
     "custom/logo": {
-        "format": "  ",
-        "on-click": "alacritty -e neofetch 2>&1 | less"
+        "format": " "
     },
     "hyprland/workspaces": {
         "format": "{icon}",
         "format-icons": {
-            "1": "  ",
+            "1": "",
             "2": "",
-            "3": "󰈹",
-            "4": "",
-            "5": "5",
+            "3": "",
+            "4": "󰈹",
+            "5": "",
             "6": "6",
             "7": "7",
             "8": "8",
@@ -57,26 +57,16 @@
             "on-click-right": "mode"
         }
     },
+    // MARK: Center
     "modules-center": [
-        "hyprland/window"
+        "clock"
     ],
-    "fixed-center": true,
-    "hyprland/window": {
-        "format": "{title}",
-        "rewrite": {
-            "(.*) - Vivaldi": " 󰈹 ",
-            "(.*) - Firefox": " 󰈹 ",
-            "(.*) - Discord": " 󰙯 ",
-            "Telegram": "  ",
-            "Spotify": "  ",
-            "(.*) Visual Studio Code": " 󰨞 ",
-            "~(.*)": "  ",
-            "/(.*)": "  ",
-            "GitHub Desktop": "  ",
-            "Steam": " 󰓓 "
-        },
-        "separate-outputs": true
+    "clock": {
+        "format": " {:%H:%M 󰃭 %d.%m.%Y}",
+        "timezone": "Europe/Prague",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
+    // MARK: Right
     "modules-right": [
         "custom/playerctl",
         "pulseaudio",
@@ -88,11 +78,11 @@
         // "keyboard-state",
         // "battery",
         // "battery#bat2",
-        "clock",
         "tray"
     ],
+    "fixed-center": true,
     "custom/playerctl": {
-        "format": "{icon}  <span>{}</span>",
+        "format": "{icon} {} ",
         "return-type": "json",
         "max-length": 50,
         "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
@@ -100,16 +90,16 @@
         "on-click": "playerctl previous",
         "on-click-right": "playerctl next",
         "format-icons": {
-            "Playing": "<span foreground='#94e2d5'></span>",
-            "Paused": "<span foreground='#f38ba8'></span>"
+            "Playing": "<span foreground='#50fa7b'></span>",
+            "Paused": "<span foreground='#ff5555'></span>"
         }
     },
     "pulseaudio": {
-        "format": "{volume}% {icon} {format_source}",
+        "format": "{icon} {volume}% {format_source}",
         "format-bluetooth": "{volume}% {icon} {format_source}",
         "format-bluetooth-muted": " {icon} {format_source}",
         "format-muted": " {format_source}",
-        "format-source": "{volume}% ",
+        "format-source": " {volume}%",
         "format-source-muted": "",
         "format-icons": {
             "headphone": "",
@@ -127,29 +117,28 @@
         "on-click": "pavucontrol"
     },
     "network": {
-        "format-wifi": "{essid} ({signalStrength}%) 󰤥",
+        "format-wifi": "󰤥 {essid} ({signalStrength}%)",
         "format-ethernet": "{ipaddr}/{cidr} ",
         "tooltip-format": "{ifname} via {gwaddr} ",
         "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "Disconnected ⚠",
+        "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "cpu": {
-        "format": "{usage}% ",
-        "tooltip": false,
-        "on-click": "alacritty -e btop"
+        "format": " {usage}%",
+        "tooltip": true
     },
     "memory": {
-        "format": "{}% ",
-        "tooltip": false
+        "format": " {used}GB/{total}GB",
+        "tooltip": true
     },
     "temperature": {
         "critical-threshold": 80,
-        "format": "{temperatureC}°C {icon}",
+        "format": "{icon} {temperatureC}°C",
         "format-icons": [
-            "",
+            "",
             "",
-            ""
+            ""
         ]
     },
     // "backlight": {
@@ -199,12 +188,6 @@
     // "battery#bat2": {
     //     "bat": "BAT2"
     // },
-    "clock": {
-        "format": "{:%H:%M} ",
-        "timezone": "Europe/Prague",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
-        "format-alt": "{:%Y-%m-%d}"
-    },
     "tray": {
         "spacing": 10
     }
