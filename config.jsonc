@@ -74,6 +74,7 @@
         "custom/playerctl",
         "pulseaudio",
         "network",
+        "custom/dualsense",
         "cpu",
         "memory",
         "temperature",
@@ -126,6 +127,11 @@
         "format-linked": "{ifname} (No IP) ",
         "format-disconnected": "⚠ Disconnected",
         "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "custom/dualsense": {
+        "format": "󰊴 {}",
+        "exec": "dualsensectl battery",
+        "interval": 60
     },
     "cpu": {
         "format": " {usage}%",
