@@ -27,8 +27,6 @@ button:hover {
 
 #workspaces button {
   margin: 2 5px;
-  background-color: @background;
-  color: @foreground;
 }
 
 #workspaces button.active {
@@ -39,29 +37,19 @@ button:hover {
   background-color: @red;
 }
 
-#cava {
-  background-color: @background;
-  color: @cyan;
-  padding: 0 5px;
-  font-size: 13px;
-}
-
+#workspaces button,
+#cava,
+#clock,
 #custom-playerctl,
+#pulseaudio,
 #network,
+#cpu,
 #memory,
+#temperature,
 #tray {
   padding: 0 10px;
-  color: @cyan;
-  background-color: @background;
-}
-
-#clock,
-#pulseaudio,
-#cpu,
-#temperature {
-  padding: 0 10px;
   color: @purple;
-  background-color: @background;
+  background-color: @purple-background;
 }
 
 #temperature.critical {
@@ -83,11 +71,11 @@ button:hover {
   }
 }
 
-#tray > .passive {
+#tray>.passive {
   -gtk-icon-effect: dim;
 }
 
-#tray > .needs-attention {
+#tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @red;
 }
