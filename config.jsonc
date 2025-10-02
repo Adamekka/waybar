@@ -4,6 +4,9 @@
     "position": "top",
     "height": 30,
     "spacing": 4,
+    "output": [
+        "HDMI-A-1"
+    ],
     // MARK: Left
     "modules-left": [
         "custom/logo",
