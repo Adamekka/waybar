@@ -1,5 +1,5 @@
 {
-    "$schema": "default.jsonc",
+    "$schema": "./default/default.jsonc",
     "layer": "top",
     "position": "top",
     "height": 30,
