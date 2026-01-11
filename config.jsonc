@@ -44,7 +44,7 @@
         "bar_delimiter": 0,
         "monstercat": true,
         "waves": true,
-        "noise_reduction": 0.77,
+        "noise_reduction": 0.15,
         "input_delay": 2,
         "format-icons": [
             "▁",
