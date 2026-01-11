@@ -86,7 +86,7 @@
     ],
     "fixed-center": true,
     "custom/playerctl": {
-        "format": "{icon} {text} ",
+        "format": " {icon} {text}",
         "return-type": "json",
         "max-length": 50,
         "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
@@ -94,8 +94,8 @@
         "on-click": "playerctl previous",
         "on-click-right": "playerctl next",
         "format-icons": {
-            "Playing": "<span foreground='#50fa7b'></span>",
-            "Paused": "<span foreground='#ff5555'></span>"
+            "Playing": "",
+            "Paused": ""
         }
     },
     "pulseaudio": {
