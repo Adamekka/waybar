@@ -67,7 +67,7 @@
     "clock": {
         "format": " {:%H:%M 󰃭 %d.%m.%Y}",
         "timezone": "Europe/Prague",
-        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+        "tooltip-format": "{calendar}"
     },
     // MARK: Right
     "modules-right": [
