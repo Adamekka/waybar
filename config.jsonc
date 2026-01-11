@@ -1,203 +1,214 @@
-{
-    "$schema": "./default/default.jsonc",
-    "layer": "top",
-    "position": "top",
-    "height": 30,
-    "spacing": 4,
-    "output": [
-        "HDMI-A-1"
-    ],
-    // MARK: Left
-    "modules-left": [
-        "custom/logo",
-        "hyprland/workspaces",
-        "cava"
-    ],
-    "custom/logo": {
-        "format": " "
-    },
-    "hyprland/workspaces": {
-        "format": "{icon}",
-        "format-icons": {
-            "1": "",
-            "2": "",
-            "3": "",
-            "4": "󰈹",
-            "5": "",
-            "6": "6",
-            "7": "7",
-            "8": "8",
-            "9": "9",
-            "10": "0"
-        }
-    },
-    "cava": {
-        "framerate": 60,
-        "autosens": 1,
-        "bars": 96,
-        "lower_cutoff_freq": 50,
-        "higher_cutoff_freq": 10000,
-        "method": "pulse",
-        "source": "auto",
-        "stereo": true,
-        "reverse": false,
-        "bar_delimiter": 0,
-        "monstercat": true,
-        "waves": true,
-        "noise_reduction": 0.15,
-        "input_delay": 2,
-        "format-icons": [
-            "▁",
-            "▂",
-            "▃",
-            "▄",
-            "▅",
-            "▆",
-            "▇",
-            "█"
+[
+    {
+        "$schema": "./default/default.jsonc",
+        "layer": "top",
+        "position": "top",
+        "height": 30,
+        "margin": 4,
+        "spacing": 4,
+        //"output": [
+        //     "HDMI-A-1"
+        //],
+        // MARK: Left
+        "modules-left": [
+            "custom/logo",
+            "hyprland/workspaces"
         ],
-        "actions": {
-            "on-click-right": "mode"
-        }
-    },
-    // MARK: Center
-    "modules-center": [
-        "clock"
-    ],
-    "clock": {
-        "format": " {:%H:%M 󰃭 %d.%m.%Y}",
-        "timezone": "Europe/Prague",
-        "tooltip-format": "{calendar}"
-    },
-    // MARK: Right
-    "modules-right": [
-        "custom/playerctl",
-        "pulseaudio",
-        "network",
-        "custom/dualsense",
-        "cpu",
-        "memory",
-        "temperature",
-        // "backlight",
-        // "keyboard-state",
-        // "battery",
-        // "battery#bat2",
-        "tray"
-    ],
-    "fixed-center": true,
-    "custom/playerctl": {
-        "format": " {icon} {text}",
-        "return-type": "json",
-        "max-length": 50,
-        "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
-        "on-click-middle": "playerctl play-pause",
-        "on-click": "playerctl previous",
-        "on-click-right": "playerctl next",
-        "format-icons": {
-            "Playing": "",
-            "Paused": ""
-        }
-    },
-    "pulseaudio": {
-        "format": "{icon} {volume}% {format_source}",
-        "format-bluetooth": "{volume}% {icon} {format_source}",
-        "format-bluetooth-muted": " {icon} {format_source}",
-        "format-muted": " {format_source}",
-        "format-source": " {volume}%",
-        "format-source-muted": "",
-        "format-icons": {
-            "headphone": "",
-            "hands-free": "",
-            "headset": "",
-            "phone": "",
-            "portable": "",
-            "car": "",
-            "default": [
-                "",
-                "",
-                ""
+        "custom/logo": {
+            "format": " "
+        },
+        "hyprland/workspaces": {
+            "format": "{icon}",
+            "format-icons": {
+                "1": "",
+                "2": "",
+                "3": "",
+                "4": "󰈹",
+                "5": "",
+                "6": "6",
+                "7": "7",
+                "8": "8",
+                "9": "9",
+                "10": "0"
+            }
+        },
+        // MARK: Center
+        "fixed-center": true,
+        "modules-center": [
+            "cava"
+        ],
+        "cava": {
+            "framerate": 60,
+            "autosens": 1,
+            "bars": 96,
+            "lower_cutoff_freq": 50,
+            "higher_cutoff_freq": 10000,
+            "method": "pulse",
+            "source": "auto",
+            "stereo": true,
+            "reverse": false,
+            "bar_delimiter": 0,
+            "monstercat": true,
+            "waves": true,
+            "noise_reduction": 0.15,
+            "input_delay": 2,
+            "format-icons": [
+                "▁",
+                "▂",
+                "▃",
+                "▄",
+                "▅",
+                "▆",
+                "▇",
+                "█"
+            ],
+            "on-click-middle": "playerctl play-pause",
+            "on-click": "playerctl previous",
+            "on-click-right": "playerctl next"
+        },
+        // MARK: Right
+        "modules-right": [
+            "pulseaudio",
+            "network",
+            "custom/dualsense",
+            "cpu",
+            "memory",
+            "temperature",
+            // "backlight",
+            // "keyboard-state",
+            // "battery",
+            // "battery#bat2",
+            "tray",
+            "clock"
+        ],
+        "pulseaudio": {
+            "format": "{icon} {volume}% {format_source}",
+            "format-bluetooth": "{volume}% {icon} {format_source}",
+            "format-bluetooth-muted": " {icon} {format_source}",
+            "format-muted": " {format_source}",
+            "format-source": " {volume}%",
+            "format-source-muted": "",
+            "format-icons": {
+                "headphone": "",
+                "hands-free": "",
+                "headset": "",
+                "phone": "",
+                "portable": "",
+                "car": "",
+                "default": [
+                    "",
+                    "",
+                    ""
+                ]
+            },
+            "on-click": "pavucontrol"
+        },
+        "network": {
+            "format-wifi": "󰤥 {essid} ({signalStrength}%)",
+            "format-ethernet": "{ipaddr}/{cidr} ",
+            "tooltip-format": "{ifname} via {gwaddr} ",
+            "format-linked": "{ifname} (No IP) ",
+            "format-disconnected": "⚠ Disconnected",
+            "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+        "custom/dualsense": {
+            "format": "󰊴 {}",
+            "exec": "dualsensectl battery",
+            "interval": 60
+        },
+        "cpu": {
+            "format": " {usage}%",
+            "tooltip": true
+        },
+        "memory": {
+            "format": " {used}GB/{total}GB",
+            "tooltip": true
+        },
+        "temperature": {
+            "critical-threshold": 80,
+            "format": "{icon} {temperatureC}°C",
+            "format-icons": [
+                "",
+                "",
+                ""
             ]
         },
-        "on-click": "pavucontrol"
+        // "backlight": {
+        //     // "device": "acpi_video1",
+        //     "format": "{percent}% {icon}",
+        //     "format-icons": [
+        //         "",
+        //         "",
+        //         "",
+        //         "",
+        //         "",
+        //         "",
+        //         "",
+        //         "",
+        //         ""
+        //     ]
+        // },
+        // "keyboard-state": {
+        //     "numlock": true,
+        //     "capslock": true,
+        //     "format": "{name} {icon}",
+        //     "format-icons": {
+        //         "locked": "",
+        //         "unlocked": ""
+        //     }
+        // },
+        // "battery": {
+        //     "states": {
+        //         // "good": 95,
+        //         "warning": 30,
+        //         "critical": 15
+        //     },
+        //     "format": "{capacity}% {icon}",
+        //     "format-charging": "{capacity}% ",
+        //     "format-plugged": "{capacity}% ",
+        //     "format-alt": "{time} {icon}",
+        //     // "format-good": "", // An empty format will hide the module
+        //     // "format-full": "",
+        //     "format-icons": [
+        //         "",
+        //         "",
+        //         "",
+        //         "",
+        //         ""
+        //     ]
+        // },
+        // "battery#bat2": {
+        //     "bat": "BAT2"
+        // },
+        "tray": {
+            "spacing": 10
+        },
+        "clock": {
+            "format": " {:%H:%M 󰃭 %d.%m.%Y}",
+            "timezone": "Europe/Prague",
+            "tooltip-format": "{calendar}"
+        }
     },
-    "network": {
-        "format-wifi": "󰤥 {essid} ({signalStrength}%)",
-        "format-ethernet": "{ipaddr}/{cidr} ",
-        "tooltip-format": "{ifname} via {gwaddr} ",
-        "format-linked": "{ifname} (No IP) ",
-        "format-disconnected": "⚠ Disconnected",
-        "format-alt": "{ifname}: {ipaddr}/{cidr}"
-    },
-    "custom/dualsense": {
-        "format": "󰊴 {}",
-        "exec": "dualsensectl battery",
-        "interval": 60
-    },
-    "cpu": {
-        "format": " {usage}%",
-        "tooltip": true
-    },
-    "memory": {
-        "format": " {used}GB/{total}GB",
-        "tooltip": true
-    },
-    "temperature": {
-        "critical-threshold": 80,
-        "format": "{icon} {temperatureC}°C",
-        "format-icons": [
-            "",
-            "",
-            ""
-        ]
-    },
-    // "backlight": {
-    //     // "device": "acpi_video1",
-    //     "format": "{percent}% {icon}",
-    //     "format-icons": [
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         ""
-    //     ]
-    // },
-    // "keyboard-state": {
-    //     "numlock": true,
-    //     "capslock": true,
-    //     "format": "{name} {icon}",
-    //     "format-icons": {
-    //         "locked": "",
-    //         "unlocked": ""
-    //     }
-    // },
-    // "battery": {
-    //     "states": {
-    //         // "good": 95,
-    //         "warning": 30,
-    //         "critical": 15
-    //     },
-    //     "format": "{capacity}% {icon}",
-    //     "format-charging": "{capacity}% ",
-    //     "format-plugged": "{capacity}% ",
-    //     "format-alt": "{time} {icon}",
-    //     // "format-good": "", // An empty format will hide the module
-    //     // "format-full": "",
-    //     "format-icons": [
-    //         "",
-    //         "",
-    //         "",
-    //         "",
-    //         ""
-    //     ]
-    // },
-    // "battery#bat2": {
-    //     "bat": "BAT2"
-    // },
-    "tray": {
-        "spacing": 10
+    {
+        "name": "overlay",
+        "layer": "top",
+        "position": "top",
+        "height": 30,
+        "margin-top": -39,
+        "exclusive": false,
+        "passthrough": true,
+        "modules-center": [
+            "custom/playerctl"
+        ],
+        "custom/playerctl": {
+            "format": "&lt; {text} &gt;",
+            "return-type": "json",
+            "max-length": 50,
+            "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
+            "format-icons": {
+                "Playing": "",
+                "Paused": ""
+            }
+        }
     }
-}
+]

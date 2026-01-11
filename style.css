@@ -4,17 +4,12 @@
   font-family: UbuntuMono Nerd Font Propo;
   font-size: 14px;
   border-radius: 20px;
-  margin: 2px;
 }
 
 window#waybar {
   background-color: rgba(0, 0, 0, 0);
   transition-property: background-color;
   transition-duration: 0.5s;
-}
-
-window#waybar.hidden {
-  opacity: 0.2;
 }
 
 button:hover {
@@ -26,7 +21,7 @@ button:hover {
 }
 
 #workspaces button {
-  margin: 2 5px;
+  margin: 4px;
 }
 
 #workspaces button.active {
@@ -39,22 +34,21 @@ button:hover {
 
 #workspaces button,
 #cava,
-#clock,
-#custom-playerctl,
 #pulseaudio,
 #network,
-#cpu,
 #custom-dualsense,
+#cpu,
 #memory,
 #temperature,
-#tray {
+#tray,
+#clock {
   padding: 0 10px;
   color: @purple;
   background-color: @purple-background;
 }
 
-#temperature.critical {
-  color: @red;
+#playerctl {
+  color: @foreground;
 }
 
 #pulseaudio.muted {
@@ -65,11 +59,8 @@ button:hover {
   color: @red;
 }
 
-@keyframes blink {
-  to {
-    background-color: @foreground;
-    color: @background;
-  }
+#temperature.critical {
+  color: @red;
 }
 
 #tray>.passive {
@@ -79,4 +70,11 @@ button:hover {
 #tray>.needs-attention {
   -gtk-icon-effect: highlight;
   background-color: @red;
+}
+
+@keyframes blink {
+  to {
+    background-color: @foreground;
+    color: @background;
+  }
 }
