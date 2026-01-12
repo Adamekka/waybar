@@ -203,7 +203,6 @@
         "custom/playerctl": {
             "format": "&lt; {text} &gt;",
             "return-type": "json",
-            "max-length": 50,
             "exec": "playerctl -a metadata --format '{\"text\": \"{{artist}} - {{markup_escape(title)}}\", \"tooltip\": \"{{playerName}} : {{markup_escape(title)}}\", \"alt\": \"{{status}}\", \"class\": \"{{status}}\"}' -F",
             "format-icons": {
                 "Playing": "",
