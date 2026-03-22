@@ -70,6 +70,7 @@
         "modules-right": [
             "pulseaudio",
             "network",
+            "bluetooth",
             "custom/dualsense",
             "cpu",
             "memory",
@@ -110,6 +111,12 @@
             "format-linked": "{ifname} (No IP) ",
             "format-disconnected": "⚠ Disconnected",
             "format-alt": "{ifname}: {ipaddr}/{cidr}"
+        },
+        "bluetooth": {
+            "format-on": "󰂯",
+            "format-off": "󰂲",
+            "on-click": "bluetoothctl power on",
+            "on-click-right": "bluetoothctl power off"
         },
         "custom/dualsense": {
             "format": "󰊴 {}",
