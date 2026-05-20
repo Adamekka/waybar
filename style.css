@@ -48,7 +48,7 @@ button:hover {
   background-color: @purple-background;
 }
 
-#playerctl {
+#custom-playerctl {
   color: @foreground;
 }
 
