@@ -64,6 +64,24 @@ button:hover {
   color: @red;
 }
 
+menu {
+  background-color: @background;
+  border: 1px solid @selection;
+  color: @foreground;
+}
+
+menuitem {
+  padding: 6px 10px;
+}
+
+menuitem:hover {
+  background-color: @selection;
+}
+
+separator {
+  background-color: @selection;
+}
+
 #tray>.passive {
   -gtk-icon-effect: dim;
 }
